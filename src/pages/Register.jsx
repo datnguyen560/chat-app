@@ -89,7 +89,7 @@ function Register() {
                         Thêm hình ảnh
                     </label>
                     <button>Đăng ký</button>
-                    {err && <span>Something went wrong</span>}
+                    {err && <span>Tài khoản đã tồn tại</span>}
                 </form>
                 <p>Bạn đã có tài khoản? <Link to="/login">Đăng nhập</Link></p>
             </div>

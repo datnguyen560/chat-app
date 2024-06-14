@@ -13,7 +13,6 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 function Iinput() {
 
-    
     const [text, setText] = useState("");
     const [imgs, setImgs] = useState(null);
     const { currentUser } = useContext(AuthContext);
@@ -28,7 +27,6 @@ function Iinput() {
       uploadTask.on(
         
         (error) => {
-            alert("Something went wrong");
         },
         
         () => {
@@ -77,9 +75,9 @@ function Iinput() {
   };
 
   const handleKeydown = (e) => {
-      if(!text == "") {
-        e.code === 'Enter' && handleSend()
-    };
+      
+        e.code === 'Enter' && handleSend();
+    
   }
 
 
