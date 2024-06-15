@@ -25,10 +25,9 @@ function Iinput() {
       const uploadTask = uploadBytesResumable(storageRef, imgs);
 
       uploadTask.on(
-        
-        (error) => {
+         (error) => {
+          
         },
-        
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateDoc(doc(db, "chats", data.chatId), {
@@ -41,10 +40,10 @@ function Iinput() {
               }),
             });
           });
-        }
+        },
+       
         
       );
-      console.log('co hinh');
     } else {
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({

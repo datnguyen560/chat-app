@@ -222,6 +222,9 @@
               border-radius: 50%;
               object-fit: cover;
             }
+            span {
+              margin-left: 3px;
+            }
           }
           .messageContent {
             max-width: 80%;

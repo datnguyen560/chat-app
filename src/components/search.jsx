@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import { db } from "../firebase";
-import { collection, getDocs, doc, query, setDoc, where, updateDoc} from "firebase/firestore";
+import { collection, getDocs, doc, query, setDoc, where, updateDoc, Timestamp} from "firebase/firestore";
 import { getDoc, serverTimestamp  } from "firebase/firestore" ;
 import { AuthContext } from "../context/authContext";
 
@@ -44,6 +44,7 @@ function Search() {
                     uid: user.uid,
                     displayName: user.displayName,
                     photoURL: user.photoURL,
+                    date: Timestamp.now()
                 },
                 [combinedId + ".date"]: serverTimestamp()
             });

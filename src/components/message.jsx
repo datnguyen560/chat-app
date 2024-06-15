@@ -4,14 +4,22 @@ import { chatContext } from "../context/chatContext";
 
 function Message({message}) {
 
+
     const {currentUser} = useContext(AuthContext);
     const { data } = useContext(chatContext);
-    
+
+    const timestamp = message.date;
+    const date = timestamp.toDate();
+    const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+    const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    const formattedTime = `${hours}:${minutes}`;
     const ref = useRef();
 
     useEffect(() => {
         ref.current?.scrollIntoView({behavior: "smooth"});
     }, [message]);
+    
+   
 
     return ( 
     <div ref={ref} 
@@ -19,7 +27,7 @@ function Message({message}) {
     >
         <div className="messageInfo">
             <img src={message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt="aa"/>
-            <span>Vừa xong</span>
+            <span>{formattedTime}</span>
         </div>
         <div className="messageContent">
             <p>{message.text}</p>

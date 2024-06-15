@@ -10,7 +10,6 @@ function App() {
   const {currentUser} = useContext(AuthContext);
   const ProtectRoute = ({children}) => {
     if(!currentUser) {
-      console.log('coloi');
       return <Navigate to="/login"/>;
       
     } 
@@ -20,11 +19,9 @@ function App() {
   return (
     <BrowserRouter>
        <Routes>
-           
-               <Route path="/" element={<ProtectRoute><Home/></ProtectRoute>}/>
-               <Route path="/login" element={<Login/>}/>
-               <Route path="/register" element={<Register/>}/> 
-            
+          <Route exact path="/" element={<ProtectRoute><Home/></ProtectRoute>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/> 
        </Routes>
     </BrowserRouter>
   );
