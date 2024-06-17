@@ -74,11 +74,8 @@ function Iinput() {
   };
 
   const handleKeydown = (e) => {
-      
         e.code === 'Enter' && handleSend();
-    
-  }
-
+  };
 
     return ( 
             <div className="input">

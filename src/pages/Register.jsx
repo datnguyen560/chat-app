@@ -12,6 +12,8 @@ import {doc, setDoc} from "firebase/firestore";
 function Register() {
 
     const [err, setErr] = useState(false);
+    const [upload, setUpload] = useState(false);
+    const [progress, setProgress] = useState(0)
     const navigate = useNavigate();
     // đăng ký email cho người mới
     const handleSubmit = async (e) => {
@@ -32,6 +34,8 @@ function Register() {
             (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 console.log('Upload is ' + progress + '% done');
+                setUpload(true);
+                setProgress(progress);
                 switch (snapshot.state) {
                     case 'paused':
                         console.log('Upload is paused');
@@ -87,6 +91,7 @@ function Register() {
                     <label htmlFor="file">
                         <img src={addAvatar} alt='aa'/>
                         Thêm hình ảnh
+                        {upload && <span>`Đã tải {progress} %`</span>}
                     </label>
                     <button>Đăng ký</button>
                     {err && <span>Tài khoản đã tồn tại</span>}

@@ -23,24 +23,24 @@ function Login() {
     }
     return ( 
         <div className="formContainer">
-                    <div className="formWrapper">
-                        <span className="logo">
-                            DatNguyen Chat
-                        </span>
-                        <span className="title">Đăng Nhập</span>
-                        <form onSubmit={handleSignin} >
-                            <input type="email" placeholder="Nhập email" autoComplete='on'/>
-                            <input type="password" placeholder="Nhập password"/>
-                            <button>Đăng nhập</button>
-                            {err && <span>Sai tài khoản hoặc mật khẩu</span>}
-                        </form>
-                        <div className="signin">
-                            <button >Đăng nhập với Facebook</button>
-                            <button>Đăng nhập với Google</button>
-                        </div>
-                        <p>Bạn đã có tài khoản? <Link to="/register">Đăng ký</Link></p>
-                    </div>
+            <div className="formWrapper">
+                <span className="logo">
+                    DatNguyen Chat
+                </span>
+                <span className="title">Đăng Nhập</span>
+                <form onSubmit={handleSignin} >
+                    <input type="email" placeholder="Nhập email" autoComplete='on'/>
+                    <input type="password" placeholder="Nhập password"/>
+                    <button>Đăng nhập</button>
+                    {err && <span>Sai tài khoản hoặc mật khẩu</span>}
+                </form>
+                <div className="signin">
+                    <button className="title" >Đăng nhập với Facebook</button>
+                    <button className="title" >Đăng nhập với Google</button>
                 </div>
+                <p>Bạn đã có tài khoản? <Link to="/register">Đăng ký</Link></p>
+            </div>
+        </div>
     );
 }
 

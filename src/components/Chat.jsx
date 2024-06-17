@@ -23,7 +23,8 @@ function Chat() {
         </div>
           <Messages/>
           <Iinput/>
-    </div> );
+        </div> 
+        );
 }
 
 export default Chat;
